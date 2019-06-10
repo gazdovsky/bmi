@@ -1,3 +1,64 @@
+<script>
+
+//exporte les données sélectionnées
+var $table = $('#table');
+    $(function () {
+        $('#toolbar').find('select').change(function () {
+            $table.bootstrapTable('refreshOptions', {
+                exportDataType: $(this).val()
+            });
+        });
+    })
+
+		var trBoldBlue = $("table");
+
+	$(trBoldBlue).on("click", "tr", function (){
+			$(this).toggleClass("bold-blue");
+	});
+	
+	$(function() {
+	    if($(window).width()>980){
+ $('table').stickyTableHeaders({fixedOffset: 96});
+}else if($(window).width()<981){
+$('table').stickyTableHeaders({fixedOffset: 0});
+}    
+	});
+ window.onload = function() {
+     console.log('24010781')
+     var hash = window.location.hash;
+     
+var href = window.location.href;
+var params = href.split('?')[1];
+
+// Be sure url params exist
+if (params && params !== '') {
+    var result = params.split('&').reduce(function (res, item) {
+        var parts = item.split('=');
+        res[parts[0]] = parts[1];
+        return res;
+    }, {});
+}
+          console.log(result)
+ if(result.position){
+     var top = document.getElementById(result.position).offsetTop; //Getting Y of target element
+     console.log(top)
+     var scrollNode = document.scrollingElement ? 
+     document.scrollingElement : document.body;
+     scrollNode.scrollTop = top;
+ } 
+ if(result.filter){
+ var elem = document.querySelectorAll(`[class='${result.filter} form-control']`);
+     elem[0].value = result[result.filter]
+     $(`[class='${result.filter} form-control']`).trigger("change");
+     
+
+ };
+
+ } 
+ 
+</script>
+
+<html>
 <table cellSpacing="0" 
 ref="mainTable" 
 id="table" 
@@ -887,3 +948,4 @@ data-toolbar="#toolbar"><thead style='background: white'>
 <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
 </tbody>
 </table>
+</html>

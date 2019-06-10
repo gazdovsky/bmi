@@ -1,5 +1,5 @@
 <script>
-
+console.log("скрипт работает")
 //exporte les données sélectionnées
 var $table = $('#table');
     $(function () {
@@ -26,7 +26,7 @@ $('table').stickyTableHeaders({fixedOffset: 0});
  window.onload = function() {
      console.log('24010781')
      var hash = window.location.hash;
-     
+      console.log("onload работает")
 var href = window.location.href;
 var params = href.split('?')[1];
 
@@ -39,6 +39,7 @@ if (params && params !== '') {
     }, {});
 }
           console.log(result)
+	 
  if(result.position){
      var top = document.getElementById(result.position).offsetTop; //Getting Y of target element
      console.log(top)

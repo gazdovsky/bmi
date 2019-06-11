@@ -1,4 +1,5 @@
 <script>
+function startW (){
 console.log("скрипт работает")
 //exporte les données sélectionnées
 var $table = $('#table');
@@ -55,7 +56,7 @@ if (params && params !== '') {
 
  };
 
- } 
+ } }
  
 </script>
 
